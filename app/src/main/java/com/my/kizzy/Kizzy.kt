@@ -30,19 +30,11 @@ import com.my.kizzy.domain.model.toVersion
 import com.my.kizzy.feature_about.about.About
 import com.my.kizzy.feature_about.about.Credits
 import com.my.kizzy.feature_about.about.CreditsScreenViewModel
-import com.my.kizzy.feature_apps_rpc.AppsRPC
-import com.my.kizzy.feature_apps_rpc.AppsScreenViewModel
-import com.my.kizzy.feature_console_rpc.GamesScreen
-import com.my.kizzy.feature_console_rpc.GamesViewModel
-import com.my.kizzy.feature_custom_rpc.CustomRPC
-import com.my.kizzy.feature_custom_rpc.CustomScreenViewModel
 import com.my.kizzy.feature_home.Home
 import com.my.kizzy.feature_home.HomeScreenViewModel
 import com.my.kizzy.feature_home.feature.homeFeaturesProvider
 import com.my.kizzy.feature_logs.LogScreen
 import com.my.kizzy.feature_logs.LogsViewModel
-import com.my.kizzy.feature_media_rpc.MediaRPC
-import com.my.kizzy.feature_media_rpc.MediaScreenViewModel
 import com.my.kizzy.feature_profile.ui.login.LoginScreen
 import com.my.kizzy.feature_profile.ui.user.UserScreen
 import com.my.kizzy.feature_profile.ui.user.UserViewModel
@@ -138,32 +130,7 @@ internal fun ComponentActivity.Kizzy(
                     }
                 )
             }
-            animatedComposable(Routes.APPS_DETECTION) {
-                val viewModel by viewModels<AppsScreenViewModel>()
-                AppsRPC(
-                    onBackPressed = { navController.popBackStack() },
-                    hasUsageAccess = usageAccessStatus.value,
-                    state = viewModel.state.collectAsState().value,
-                    updateAppEnabled = viewModel::updateAppEnabled,
-                )
-            }
-            animatedComposable(Routes.CUSTOM_RPC) {
-                val viewModel by viewModels<CustomScreenViewModel>()
-                CustomRPC(
-                    onBackPressed = { navController.popBackStack() },
-                    state = viewModel.uiState.collectAsState().value,
-                    onEvent = viewModel::onEvent
-                )
-            }
-            animatedComposable(Routes.MEDIA_RPC) {
-                val viewModel by viewModels<MediaScreenViewModel>()
-                MediaRPC(
-                    onBackPressed = { navController.popBackStack() },
-                    state = viewModel.state.collectAsState().value,
-                    hasNotificationAccess = notificationListenerAccess.value,
-                    updateMediaAppEnabled = viewModel::updateMediaAppEnabled
-                )
-            }
+
             animatedComposable(Routes.PROFILE) {
                 var loggedIn by remember {
                     mutableStateOf(Prefs[Prefs.TOKEN, ""].isNotEmpty())
@@ -183,16 +150,7 @@ internal fun ComponentActivity.Kizzy(
                     )
                 }
             }
-            animatedComposable(Routes.CONSOLE_RPC) {
-                val viewModel by viewModels<GamesViewModel>()
-                GamesScreen(
-                    onBackPressed = { navController.popBackStack() },
-                    onEvent = { viewModel.onUiEvent(it) },
-                    isSearchBarVisible = viewModel.isSearchBarVisible.value,
-                    state = viewModel.state.value,
-                    serviceEnabled = AppUtils.customRpcRunning()
-                )
-            }
+
             animatedComposable(Routes.LANGUAGES) {
                 Language(
                     onBackPressed = { navController.popBackStack() },

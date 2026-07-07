@@ -45,9 +45,6 @@ fun homeFeaturesProvider(
             isChecked = AppUtils.experimentalRpcRunning(),
             onCheckedChange = {
                 if (it) {
-                    ctx.stopService(Intent(ctx, MediaRpcService::class.java))
-                    ctx.stopService(Intent(ctx, CustomRpcService::class.java))
-                    ctx.stopService(Intent(ctx, AppDetectionService::class.java))
                     ctx.startService(Intent(ctx, ExperimentalRpc::class.java))
                 } else
                     ctx.stopService(Intent(ctx, ExperimentalRpc::class.java))

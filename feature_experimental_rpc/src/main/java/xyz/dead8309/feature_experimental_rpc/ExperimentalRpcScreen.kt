@@ -55,10 +55,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.my.kizzy.data.rpc.TemplateKeys
 import com.my.kizzy.feature_rpc_base.AppUtils
-import com.my.kizzy.feature_rpc_base.services.AppDetectionService
-import com.my.kizzy.feature_rpc_base.services.CustomRpcService
 import com.my.kizzy.feature_rpc_base.services.ExperimentalRpc
-import com.my.kizzy.feature_rpc_base.services.MediaRpcService
 import com.my.kizzy.resources.R
 import com.my.kizzy.ui.components.BackButton
 import com.my.kizzy.ui.components.RpcFieldWithCompletions
@@ -147,9 +144,6 @@ fun ExperimentalRpcScreen(
                 experimentalRpcRunning = !experimentalRpcRunning
                 when (experimentalRpcRunning) {
                     true -> {
-                        context.stopService(Intent(context, AppDetectionService::class.java))
-                        context.stopService(Intent(context, CustomRpcService::class.java))
-                        context.stopService(Intent(context, MediaRpcService::class.java))
                         context.startService(Intent(context, ExperimentalRpc::class.java))
                     }
 
