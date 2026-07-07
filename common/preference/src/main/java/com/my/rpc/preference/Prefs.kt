@@ -240,6 +240,7 @@ object Prefs {
     const val EXPERIMENTAL_RPC_SHOW_COVER_ART = "experimental_rpc_show_cover_art"
     const val EXPERIMENTAL_RPC_SHOW_APP_ICON = "experimental_rpc_show_app_icon"
     const val EXPERIMENTAL_RPC_SHOW_PLAYBACK_STATE = "experimental_rpc_show_playback_state"
+    const val EXPERIMENTAL_RPC_SHOW_APP_AND_PAUSE_ICON = "experimental_rpc_show_app_and_pause_icon"
     const val EXPERIMENTAL_RPC_ENABLE_TIMESTAMPS = "experimental_rpc_enable_timestamps"
     const val EXPERIMENTAL_RPC_HIDE_ON_PAUSE = "experimental_rpc_hide_on_pause"
     fun saveAppActivityType(packageName: String, activityType: Int) {

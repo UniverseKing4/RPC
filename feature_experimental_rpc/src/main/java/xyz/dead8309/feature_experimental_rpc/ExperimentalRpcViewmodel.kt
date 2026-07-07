@@ -41,6 +41,7 @@ class ExperimentalRpcViewmodel @Inject constructor(
             showCoverArt = Prefs[Prefs.EXPERIMENTAL_RPC_SHOW_COVER_ART, false],
             showAppIcon = Prefs[Prefs.EXPERIMENTAL_RPC_SHOW_APP_ICON, false],
             showPlaybackState = Prefs[Prefs.EXPERIMENTAL_RPC_SHOW_PLAYBACK_STATE, false],
+            showAppAndPauseIcon = Prefs[Prefs.EXPERIMENTAL_RPC_SHOW_APP_AND_PAUSE_ICON, false],
             enableTimestamps = Prefs[Prefs.EXPERIMENTAL_RPC_ENABLE_TIMESTAMPS, false],
             hideOnPause = Prefs[Prefs.EXPERIMENTAL_RPC_HIDE_ON_PAUSE, false],
         )
@@ -134,7 +135,8 @@ class ExperimentalRpcViewmodel @Inject constructor(
                     }
                     if (event.enabled) {
                         Prefs[Prefs.EXPERIMENTAL_RPC_SHOW_PLAYBACK_STATE] = false
-                        _uiState.update { it.copy(showPlaybackState = false) }
+                        Prefs[Prefs.EXPERIMENTAL_RPC_SHOW_APP_AND_PAUSE_ICON] = false
+                        _uiState.update { it.copy(showPlaybackState = false, showAppAndPauseIcon = false) }
                     }
                 }
 
@@ -145,7 +147,20 @@ class ExperimentalRpcViewmodel @Inject constructor(
                     }
                     if (event.enabled) {
                         Prefs[Prefs.EXPERIMENTAL_RPC_SHOW_APP_ICON] = false
-                        _uiState.update { it.copy(showAppIcon = false) }
+                        Prefs[Prefs.EXPERIMENTAL_RPC_SHOW_APP_AND_PAUSE_ICON] = false
+                        _uiState.update { it.copy(showAppIcon = false, showAppAndPauseIcon = false) }
+                    }
+                }
+
+                is UiEvent.ToggleShowAppAndPauseIcon -> {
+                    Prefs[Prefs.EXPERIMENTAL_RPC_SHOW_APP_AND_PAUSE_ICON] = event.enabled
+                    _uiState.update {
+                        it.copy(showAppAndPauseIcon = event.enabled)
+                    }
+                    if (event.enabled) {
+                        Prefs[Prefs.EXPERIMENTAL_RPC_SHOW_APP_ICON] = false
+                        Prefs[Prefs.EXPERIMENTAL_RPC_SHOW_PLAYBACK_STATE] = false
+                        _uiState.update { it.copy(showAppIcon = false, showPlaybackState = false) }
                     }
                 }
 

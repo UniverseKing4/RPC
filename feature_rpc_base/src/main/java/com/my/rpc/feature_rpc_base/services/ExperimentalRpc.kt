@@ -270,6 +270,14 @@ class ExperimentalRpc : Service() {
             }
 
             finalSmallImage = when {
+                Prefs[Prefs.EXPERIMENTAL_RPC_SHOW_APP_AND_PAUSE_ICON, false] -> {
+                    if (richMediaInfo?.playbackState == PlaybackState.STATE_PAUSED || richMediaInfo?.playbackState == PlaybackState.STATE_STOPPED) {
+                        richMediaInfo?.playbackStateIcon
+                    } else {
+                        richMediaInfo?.appIcon
+                    }
+                }
+
                 Prefs[Prefs.EXPERIMENTAL_RPC_SHOW_PLAYBACK_STATE, true] ->
                     richMediaInfo?.playbackStateIcon
 

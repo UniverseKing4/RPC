@@ -26,6 +26,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AppsOutage
 import androidx.compose.material.icons.filled.PauseCircle
 import androidx.compose.material.icons.filled.PlayCircle
+import androidx.compose.material.icons.filled.PlayCircleOutline
 import androidx.compose.material.icons.filled.Timer
 import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material.icons.outlined.AppSettingsAlt
@@ -237,6 +238,17 @@ fun ExperimentalRpcScreen(
                             onEvent(UiEvent.ToggleShowPlaybackState(!state.showPlaybackState))
                         },
                         icon = Icons.Default.PlayCircle
+                    )
+                }
+                item {
+                    PreferenceSwitch(
+                        title = stringResource(R.string.show_app_and_pause_icon),
+                        description = stringResource(R.string.show_app_and_pause_icon_desc),
+                        isChecked = state.showAppAndPauseIcon,
+                        onClick = {
+                            onEvent(UiEvent.ToggleShowAppAndPauseIcon(!state.showAppAndPauseIcon))
+                        },
+                        icon = Icons.Default.PlayCircleOutline
                     )
                 }
                 item {

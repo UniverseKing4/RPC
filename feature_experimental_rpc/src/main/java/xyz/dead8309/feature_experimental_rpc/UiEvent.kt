@@ -23,6 +23,7 @@ sealed interface UiEvent {
     data class ToggleShowCoverArt(val enabled: Boolean) : UiEvent
     data class ToggleShowAppIcon(val enabled: Boolean) : UiEvent
     data class ToggleShowPlaybackState(val enabled: Boolean) : UiEvent
+    data class ToggleShowAppAndPauseIcon(val enabled: Boolean) : UiEvent
     data class ToggleEnableTimestamps(val enabled: Boolean) : UiEvent
     data class ToggleHideOnPause(val enabled: Boolean) : UiEvent
 }

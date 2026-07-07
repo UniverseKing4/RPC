@@ -198,6 +198,8 @@
     <string name="start_experimentalRPC_toast">Experimental RPC started</string>
     <string name="stop_rpc_toast">All services stopped</string>
     <string name="show_playback_state">Show Playback State</string>
+    <string name="show_app_and_pause_icon">Show App (Play) / Pause Icon</string>
+    <string name="show_app_and_pause_icon_desc">Shows App Icon while playing, and Playback state while paused</string>
     <string name="copied_to_clipboard">Copied to clipboard</string>
     <string name="application_id">Application ID</string>
     <string name="custom_application_id">Custom Activity Application ID</string>
