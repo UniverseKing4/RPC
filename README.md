@@ -6,7 +6,6 @@
 <a href="https://github.com/UniverseKing4/Discord-App-RPC/releases/latest">
 <img alt="Release" src="https://img.shields.io/github/v/release/UniverseKing4/Discord-App-RPC?&style=flat-square&color=5b5ef7&display_name=release">
 </a>
-<img src="https://img.shields.io/github/actions/workflow/status/UniverseKing4/Discord-App-RPC/build.yml?branch=main?&style=flat-square&color=5b5ef7">
 <img src="https://img.shields.io/badge/kotlin-5b5ef7.svg?logo=kotlin&logoColor=white&style=flat-square">
 <img src="https://img.shields.io/badge/Android_Studio-5b5ef7?logo=android-studio&logoColor=white&style=flat-square">
 </div>
