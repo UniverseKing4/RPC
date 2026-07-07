@@ -36,7 +36,7 @@
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Kizzy"
+        android:theme="@style/Theme.Rpc"
         tools:targetApi="tiramisu">
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -99,7 +99,7 @@
             android:exported="false"/>
 
         <service
-            android:name=".feature_rpc_base.services.KizzyTileService"
+            android:name=".feature_rpc_base.services.RpcTileService"
             android:icon="@drawable/ic_tile_play"
             android:label="@string/qs_tile_label"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE"

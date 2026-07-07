@@ -129,7 +129,7 @@
     <string name="yes">Да</string>
     <string name="user_profile_error">Не удалось обновить профиль:</string>
     <string name="no_internet_user_profile">Нет подключения к интернету, попробуйте позднее.</string>
-    <string name="user_profile_rpc_name">ИСПОЛЬЗУЕТ KIZZY</string>
+    <string name="user_profile_rpc_name">ИСПОЛЬЗУЕТ RPC</string>
     <string name="user_profile_bio">ОБО МНЕ</string>
     <string name="user_profile_special_button">Специальная кнопка</string>
     <string name="user_profile">Профиль</string>

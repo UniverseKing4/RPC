@@ -8,7 +8,7 @@
 .externalNativeBuild
 .cxx
 local.properties
-/app/Kizzy.keystore
+/app/Rpc.keystore
 /app/debug/
 /buildSrc/build/
 

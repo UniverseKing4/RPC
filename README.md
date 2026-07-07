@@ -9,15 +9,15 @@
 <img src="https://img.shields.io/badge/Minimum%20SDK-27-%23?&style=flat-square&color=5b5ef7">
 
 
-<img src="https://img.shields.io/github/downloads/dead8309/Kizzy/total?&style=flat-square&color=5b5ef7">
+<img src="https://img.shields.io/github/downloads/dead8309/Rpc/total?&style=flat-square&color=5b5ef7">
 
 
-<a href="https://github.com/dead8309/Kizzy/releases/latest">
-<img alt="Release" src="https://img.shields.io/github/v/release/dead8309/Kizzy?&style=flat-square&color=5b5ef7&display_name=release">
+<a href="https://github.com/dead8309/Rpc/releases/latest">
+<img alt="Release" src="https://img.shields.io/github/v/release/dead8309/Rpc?&style=flat-square&color=5b5ef7&display_name=release">
 </a>
 
 
-<img src="https://img.shields.io/github/actions/workflow/status/dead8309/Kizzy/build.yml?branch=master?&style=flat-square&color=5b5ef7">
+<img src="https://img.shields.io/github/actions/workflow/status/dead8309/Rpc/build.yml?branch=master?&style=flat-square&color=5b5ef7">
 
 
 <img src="https://img.shields.io/badge/kotlin-5b5ef7.svg?logo=kotlin&logoColor=white&style=flat-square">
@@ -36,7 +36,7 @@
 
 
 <div align="center">
-<h1>Kizzy</h1>
+<h1>Rpc</h1>
 <h4>A Discord Rich Presence manager for Android fully written in Kotlin.
 </h4>
 <p>
@@ -47,24 +47,24 @@
 ## System Requirements
 - OS: Android 8.1 through 14 *(note: Android 14 may have some bugs with experimental features.)* <br />
 - RAM: 3GB minimum <br />
-*(please keep in mind all systems are different and may have their own bugs. create an [issue](https://github.com/dead8309/Kizzy/issues/new/choose) if you find a bug.)*
+*(please keep in mind all systems are different and may have their own bugs. create an [issue](https://github.com/dead8309/Rpc/issues/new/choose) if you find a bug.)*
 
 ## Quickstart
-Check out our [QuickStart Guide](https://kizzydocs.vercel.app/quickstart/install)
+Check out our [QuickStart Guide](https://rpcdocs.vercel.app/quickstart/install)
 
 
 
 
 ## Download
 > **Warning**
-> If you're thinking about downloading a Kizzy clone or app from any third-party service (other than the ones listed in our repository), think again! We can't be held responsible for any issues that may arise with your account as a result. Stay safe and stick to our trusted download links for the genuine app.
+> If you're thinking about downloading a Rpc clone or app from any third-party service (other than the ones listed in our repository), think again! We can't be held responsible for any issues that may arise with your account as a result. Stay safe and stick to our trusted download links for the genuine app.
 
 > **Warning**
 > This app uses the Discord Gateway connection. Use this at your own risk.
 However people have been using custom rich presence for past 4-5 years and there's is still no case of account getting terminated.
 
 
-<a href="https://github.com/dead8309/Kizzy/releases/latest">
+<a href="https://github.com/dead8309/Rpc/releases/latest">
 <img src="https://img.shields.io/badge/GitHub-181717?logo=github&logoColor=white"
      alt="Download from GitHub"
      height="60">
@@ -97,7 +97,7 @@ However people have been using custom rich presence for past 4-5 years and there
 - [x] Save/Load presence configs
 - [x] Material You theme
 - [x] Translations
-- [x] Easy [Setup](https://kizzydocs.vercel.app/quickstart/post_install) 
+- [x] Easy [Setup](https://rpcdocs.vercel.app/quickstart/post_install) 
 - [x] 300+ Predefined presets
 - [x] Create custom configs with your own images and links
 - [x] Preview RPC in the app itself
@@ -109,7 +109,7 @@ However people have been using custom rich presence for past 4-5 years and there
 
 ## Getting Started
 Read the Setup Guide from
-[![DOCS](https://kizzydocs.vercel.app/api/og?title=Kizzy+Docs)](https://kizzydocs.vercel.app)
+[![DOCS](https://rpcdocs.vercel.app/api/og?title=Rpc+Docs)](https://rpcdocs.vercel.app)
 
 
 
@@ -122,7 +122,7 @@ For building the app locally
 
 > Clone the project
 ```console
-git clone https://github.com/dead8309/Kizzy.git
+git clone https://github.com/dead8309/Rpc.git
 ```
 > Building
 - Open Android Studio
@@ -130,7 +130,7 @@ git clone https://github.com/dead8309/Kizzy.git
 - Click on Build and Run
 
 ## Translate
-See [Contribute for Translation](https://github.com/dead8309/Kizzy/issues/2#issue-1370365856)
+See [Contribute for Translation](https://github.com/dead8309/Rpc/issues/2#issue-1370365856)
 
 ## Credits
 ✨ [Read You](https://github.com/Ashinch/ReadYou) and [Seal](https://github.com/JunkFood02/Seal) for Ui Components
@@ -146,8 +146,8 @@ See [Contribute for Translation](https://github.com/dead8309/Kizzy/issues/2#issu
 ✨ [Monet](https://github.com/Kyant0/Monet) for Material3 palettes
 
 ## Licence 
-**Kizzy** is an open source project under the GNU GPL 3.0 Open Source License ①, which allows you to use, reference, and modify the source code of **Kizzy** for free, but does not allow the modified and derived code to be distributed and sold as closed-source commercial software. For details, please see the full GNU GPL 3.0 Open Source License ②.
+**Rpc** is an open source project under the GNU GPL 3.0 Open Source License ①, which allows you to use, reference, and modify the source code of **Rpc** for free, but does not allow the modified and derived code to be distributed and sold as closed-source commercial software. For details, please see the full GNU GPL 3.0 Open Source License ②.
 
-See [Terms Of Service](https://github.com/dead8309/Kizzy/blob/2bd547217688d91e5ee12a294faed477e9d4fa08/TERMS_OF_SERVICE.md) for more info
+See [Terms Of Service](https://github.com/dead8309/Rpc/blob/2bd547217688d91e5ee12a294faed477e9d4fa08/TERMS_OF_SERVICE.md) for more info
 
 <!-- GitAds-Verify: NL8NC5HUT8U5FABBUO26JCE583GNYS6M -->

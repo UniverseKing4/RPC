@@ -130,7 +130,7 @@
     <string name="yes">Tak</string>
     <string name="user_profile_error">Nie można zaaktualizować profilu użytkownika:</string>
     <string name="no_internet_user_profile">Brak połączenia z internetem. Spróbuj ponownie później.</string>
-    <string name="user_profile_rpc_name">UŻYWASZ KIZZY RICH PRESENCE</string>
+    <string name="user_profile_rpc_name">UŻYWASZ RPC RICH PRESENCE</string>
     <string name="user_profile_bio">O MNIE</string>
     <string name="user_profile_special_button">Specjalny Przycisk</string>
     <string name="user_profile">Profil Użytkownika</string>

@@ -1,12 +1,12 @@
 plugins {
-    id ("kizzy.android.library")
-    id ("kizzy.android.library.compose")
-    id ("kizzy.android.feature")
-    id ("kizzy.android.hilt")
+    id ("rpc.android.library")
+    id ("rpc.android.library.compose")
+    id ("rpc.android.feature")
+    id ("rpc.android.hilt")
 }
 
 android {
-    namespace = "com.my.kizzy.feature_about"
+    namespace = "com.my.rpc.feature_about"
 
     defaultConfig {
         buildConfigField("String","VERSION_NAME", "\"${libs.versions.version.name.get()}\"")

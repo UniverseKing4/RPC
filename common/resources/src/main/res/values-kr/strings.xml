@@ -130,7 +130,7 @@
     <string name="yes">예</string>
     <string name="user_profile_error">사용자 프로필을 업데이트할 수 없습니다:</string>
     <string name="no_internet_user_profile">인터넷 연결이 없습니다. 나중에 다시 시도하세요.</string>
-    <string name="user_profile_rpc_name">KIZZY 리치 프레즌스 사용 중</string>
+    <string name="user_profile_rpc_name">RPC 리치 프레즌스 사용 중</string>
     <string name="user_profile_bio">자기소개</string>
     <string name="user_profile_special_button">특별 버튼</string>
     <string name="user_profile">사용자 프로필</string>

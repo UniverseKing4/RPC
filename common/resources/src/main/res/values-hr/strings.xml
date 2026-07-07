@@ -130,7 +130,7 @@
     <string name="yes">Yes</string>
     <string name="user_profile_error">Could not Update User Profile:</string>
     <string name="no_internet_user_profile">No Internet connection. Try again later.</string>
-    <string name="user_profile_rpc_name">USING KIZZY RICH PRESENCE</string>
+    <string name="user_profile_rpc_name">USING RPC RICH PRESENCE</string>
     <string name="user_profile_bio">ABOUT ME</string>
     <string name="user_profile_special_button">Special Button</string>
     <string name="user_profile">User Profile</string>

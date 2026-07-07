@@ -130,7 +130,7 @@
     <string name="yes">Ya</string>
     <string name="user_profile_error">Gagal Update Profil:</string>
     <string name="no_internet_user_profile">Tidak ada koneksi internet. Coba lagi nanti.</string>
-    <string name="user_profile_rpc_name">MENGGUNAKAN KIZZY RICH PRESENCE</string>
+    <string name="user_profile_rpc_name">MENGGUNAKAN RPC RICH PRESENCE</string>
     <string name="user_profile_bio">TENTANG SAYA</string>
     <string name="user_profile_special_button">Tombol Spesial</string>
     <string name="user_profile">Profil Pengguna</string>

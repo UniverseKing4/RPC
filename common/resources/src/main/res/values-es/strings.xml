@@ -127,7 +127,7 @@
     <string name="yes">Sí</string>
     <string name="user_profile_error">No se pudo Actualizar el Perfil del Usuario:</string>
     <string name="no_internet_user_profile">No hay conexión a Internet. Inténtalo de nuevo más tarde.</string>
-    <string name="user_profile_rpc_name">USANDO KIZZY RICH PRESENCE</string>
+    <string name="user_profile_rpc_name">USANDO RPC RICH PRESENCE</string>
     <string name="user_profile_bio">ACERCA DE MÍ</string>
     <string name="user_profile_special_button">Botón Especial</string>
     <string name="user_profile">Perfil de Usuario</string>

@@ -129,7 +129,7 @@
     <string name="yes">ใช่</string>
     <string name="user_profile_error">ไม่สามารถอัปเดตข้อมูลโปรไฟล์ผู้ใช้งานได้:</string>
     <string name="no_internet_user_profile">ลืมเปิดเชื่อมต่ออินเตอร์เน็ตรึเปล่า? ลองเช็คดูก่อนนะ!</string>
-    <string name="user_profile_rpc_name">กำลังใช้ KIZZY RICH PRESENCE</string>
+    <string name="user_profile_rpc_name">กำลังใช้ RPC RICH PRESENCE</string>
     <string name="user_profile_bio">เกี่ยวกับฉัน</string>
     <string name="user_profile_special_button">ปุ่มวิเศษกดแล้วจะถูกหวยรางวัลที่1</string>
     <string name="user_profile">ปรับแต่งโปรไฟล์ผู้ใช้อยู่จ้า</string>

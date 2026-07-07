@@ -2,7 +2,7 @@
  *
  *  ******************************************************************
  *  *  * Copyright (C) 2022
- *  *  * UiState.kt is part of Kizzy
+ *  *  * UiState.kt is part of Rpc
  *  *  *  and can not be copied and/or distributed without the express
  *  *  * permission of yzziK(Vaibhav)
  *  *  *****************************************************************
@@ -13,7 +13,7 @@
 package xyz.dead8309.feature_experimental_rpc
 
 import androidx.compose.runtime.Immutable
-import com.my.kizzy.data.utils.AppsInfo
+import com.my.rpc.data.utils.AppsInfo
 
 @Immutable
 data class UiState(

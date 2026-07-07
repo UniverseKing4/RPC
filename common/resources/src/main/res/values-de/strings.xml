@@ -130,7 +130,7 @@
     <string name="yes">Ja</string>
     <string name="user_profile_error">Benutzerprofil konnte nicht aktualisiert werden:</string>
     <string name="no_internet_user_profile">Keine Internetverbindung. Versuche es später erneut.</string>
-    <string name="user_profile_rpc_name">VERWENDUNG VON KIZZY UMFANGREICHE PRÄSENZ</string>
+    <string name="user_profile_rpc_name">VERWENDUNG VON RPC UMFANGREICHE PRÄSENZ</string>
     <string name="user_profile_bio">ÜBER MICH</string>
     <string name="user_profile_special_button">Besonderer Knopf</string>
     <string name="user_profile">Benutzerprofil</string>

@@ -129,7 +129,7 @@
     <string name="yes">Sì</string>
     <string name="user_profile_error">Impossibile aggiornare profilo utente.</string>
     <string name="no_internet_user_profile">Nessuna connessione Internet. Riprova più tardi.</string>
-    <string name="user_profile_rpc_name">USA KIZZY RICH PRESENCE</string>
+    <string name="user_profile_rpc_name">USA RPC RICH PRESENCE</string>
     <string name="user_profile_bio">CHI SONO</string>
     <string name="user_profile_special_button">Pulsante speciale</string>
     <string name="user_profile">Profilo utente</string>

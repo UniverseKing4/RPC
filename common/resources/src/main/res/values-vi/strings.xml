@@ -129,7 +129,7 @@
     <string name="yes">Có</string>
     <string name="user_profile_error">Không thể hiện hồ sơ người dùng:</string>
     <string name="no_internet_user_profile">Không thể kết nối Internet. Thử lại sau.</string>
-    <string name="user_profile_rpc_name">ĐANG SỬ DỤNG HOẠT ĐỘNG KIZZY</string>
+    <string name="user_profile_rpc_name">ĐANG SỬ DỤNG HOẠT ĐỘNG RPC</string>
     <string name="user_profile_bio">GIỚI THIỆU VỀ TÔI</string>
     <string name="user_profile_special_button">Nút đặc biệt</string>
     <string name="user_profile">Hồ sơ Người dùng</string>

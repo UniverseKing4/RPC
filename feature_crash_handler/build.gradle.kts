@@ -1,11 +1,11 @@
 plugins {
-    id ("kizzy.android.library")
-    id ("kizzy.android.library.compose")
-    id ("kizzy.android.feature")
+    id ("rpc.android.library")
+    id ("rpc.android.library.compose")
+    id ("rpc.android.feature")
 }
 
 android {
-    namespace = "com.my.kizzy.feature_crash_handler"
+    namespace = "com.my.rpc.feature_crash_handler"
 }
 
 dependencies {

@@ -1,10 +1,10 @@
 plugins {
-    id ("kizzy.android.library")
-    id ("kizzy.android.library.compose")
+    id ("rpc.android.library")
+    id ("rpc.android.library.compose")
 }
 
 android {
-    namespace = "com.my.kizzy.navigation"
+    namespace = "com.my.rpc.navigation"
 }
 
 dependencies {

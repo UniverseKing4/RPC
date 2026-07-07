@@ -130,7 +130,7 @@
     <string name="yes">כֵּן</string>
     <string name="user_profile_error">לא ניתן היה לעדכן את פרופיל המשתמש:</string>
     <string name="no_internet_user_profile">אין חיבור לאינטרנט. נסה שוב מאוחר יותר.</string>
-    <string name="user_profile_rpc_name">באמצעות הנוכחות העשירה של KIZZY</string>
+    <string name="user_profile_rpc_name">באמצעות הנוכחות העשירה של RPC</string>
     <string name="user_profile_bio">אודותיי</string>
     <string name="user_profile_special_button">כפתור מיוחד</string>
     <string name="user_profile">פרופיל משתמש</string>

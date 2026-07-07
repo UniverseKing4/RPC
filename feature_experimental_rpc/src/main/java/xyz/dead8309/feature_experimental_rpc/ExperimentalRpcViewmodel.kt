@@ -2,7 +2,7 @@
  *
  *  ******************************************************************
  *  *  * Copyright (C) 2022
- *  *  * ExperimentalRpcViewmodel.kt is part of Kizzy
+ *  *  * ExperimentalRpcViewmodel.kt is part of Rpc
  *  *  *  and can not be copied and/or distributed without the express
  *  *  * permission of yzziK(Vaibhav)
  *  *  *****************************************************************
@@ -15,8 +15,8 @@ package xyz.dead8309.feature_experimental_rpc
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.my.kizzy.data.utils.getInstalledApps
-import com.my.kizzy.preference.Prefs
+import com.my.rpc.data.utils.getInstalledApps
+import com.my.rpc.preference.Prefs
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Dispatchers

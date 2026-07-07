@@ -1,11 +1,11 @@
 plugins {
-    id ("kizzy.android.library")
-    id ("kizzy.android.feature")
-    id ("kizzy.android.hilt")
+    id ("rpc.android.library")
+    id ("rpc.android.feature")
+    id ("rpc.android.hilt")
 }
 
 android {
-    namespace = "com.my.kizzy.feature_rpc_base"
+    namespace = "com.my.rpc.feature_rpc_base"
 }
 
 dependencies {

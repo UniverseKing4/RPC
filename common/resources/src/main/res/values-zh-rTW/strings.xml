@@ -130,7 +130,7 @@
     <string name="yes">對</string>
     <string name="user_profile_error">無法更新個人資料:</string>
     <string name="no_internet_user_profile">沒有網路連線。請稍後再試。</string>
-    <string name="user_profile_rpc_name">正在使用 KIZZY 的 RICH PRESENCE</string>
+    <string name="user_profile_rpc_name">正在使用 RPC 的 RICH PRESENCE</string>
     <string name="user_profile_bio">關於我</string>
     <string name="user_profile_special_button">很特別的按鈕</string>
     <string name="user_profile">個人資料</string>
