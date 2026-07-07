@@ -311,9 +311,11 @@ class RpcRPC(
 
     suspend fun updateRPC(commonRpc: CommonRpc, enableTimestamps: Boolean? = true) {
         if (!discordWebSocket.isActive) return
-        var time = Timestamps(start = startTimestamps)
-        if (commonRpc.time != null)
-            Timestamps(end = commonRpc.time.end, start = commonRpc.time.start).also { time = it }
+        val time = if (commonRpc.time != null) {
+            Timestamps(end = commonRpc.time.end, start = commonRpc.time.start)
+        } else {
+            null
+        }
         if (commonRpc.partyCurrentSize != null && commonRpc.partyMaxSize != null)
             Party(id = "rpc", size = arrayOf(commonRpc.partyCurrentSize, commonRpc.partyMaxSize)).also { party = it }
         discordWebSocket.sendActivity(
