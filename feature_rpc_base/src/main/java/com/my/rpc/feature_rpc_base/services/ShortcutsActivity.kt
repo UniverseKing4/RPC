@@ -29,17 +29,17 @@ class ShortcutsActivity : Activity() {
     private fun handleShortcut() {
         intent?.action?.let {
             when (it) {
-                Intents.START_EXPERIMENTAL_RPC_SHORTCUT -> {
-                    stopService(Intent(this, ExperimentalRpc::class.java))
+                Intents.START_RPC_SHORTCUT -> {
+                    stopService(Intent(this, Rpc::class.java))
 
-                    startService(Intent(this, ExperimentalRpc::class.java))
+                    startService(Intent(this, Rpc::class.java))
                     Toast.makeText(
-                        this, getString(R.string.start_experimentalRPC_toast), Toast.LENGTH_SHORT
+                        this, getString(R.string.start_rpc_toast), Toast.LENGTH_SHORT
                     ).show()
                 }
 
                 Intents.STOP_RPC -> {
-                    stopService(Intent(this, ExperimentalRpc::class.java))
+                    stopService(Intent(this, Rpc::class.java))
 
                     Toast.makeText(this, getString(R.string.stop_rpc_toast), Toast.LENGTH_SHORT)
                         .show()
@@ -55,8 +55,8 @@ class ShortcutsActivity : Activity() {
 
     companion object {
         object Intents {
-            val START_EXPERIMENTAL_RPC_SHORTCUT =
-                "com.my.rpc.intent.action.START_EXPERIMENTAL_RPC"
+            val START_RPC_SHORTCUT =
+                "com.my.rpc.intent.action.START_RPC"
             val STOP_RPC = "com.my.rpc.intent.action.STOP_RPC"
         }
     }

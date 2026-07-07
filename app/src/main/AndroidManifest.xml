@@ -94,7 +94,7 @@
                 android:value="true" />
         </service>
 
-        <service android:name=".feature_rpc_base.services.ExperimentalRpc"
+        <service android:name=".feature_rpc_base.services.Rpc"
             android:foregroundServiceType="mediaPlayback"
             android:exported="false"/>
 

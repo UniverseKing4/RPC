@@ -45,7 +45,7 @@
 </div>
 
 ## System Requirements
-- OS: Android 8.1 through 14 *(note: Android 14 may have some bugs with experimental features.)* <br />
+- OS: Android 8.1 through 14 *(note: Android 14 may have some bugs with rpc features.)* <br />
 - RAM: 3GB minimum <br />
 *(please keep in mind all systems are different and may have their own bugs. create an [issue](https://github.com/dead8309/Rpc/issues/new/choose) if you find a bug.)*
 

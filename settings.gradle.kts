@@ -36,7 +36,7 @@ include(
     ":feature_rpc_base",
     ":feature_home",
     ":common:navigation",
-    ":feature_experimental_rpc"
+    ":feature_rpc"
 
 )
 rootProject.name = "RPC"

@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.my.rpc.feature_experimental_rpc"
+    namespace = "com.my.rpc.feature_rpc"
 }
 
 dependencies {

@@ -20,7 +20,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.my.rpc.feature_rpc_base.AppUtils
-import com.my.rpc.feature_rpc_base.services.ExperimentalRpc
+import com.my.rpc.feature_rpc_base.services.Rpc
 import com.my.rpc.navigation.Routes
 import com.my.rpc.preference.Prefs
 import com.my.rpc.resources.R
@@ -37,19 +37,19 @@ fun homeFeaturesProvider(
         HomeFeature(
             title = "RPC",
             icon = R.drawable.ic_dev_rpc,
-            route = Routes.EXPERIMENTAL_RPC,
+            route = Routes.RPC,
             onClick = { navigateTo(it) },
-            isChecked = AppUtils.experimentalRpcRunning(),
+            isChecked = AppUtils.rpcRunning(),
             onCheckedChange = {
                 if (it) {
-                    ctx.startService(Intent(ctx, ExperimentalRpc::class.java))
+                    ctx.startService(Intent(ctx, Rpc::class.java))
                 } else
-                    ctx.stopService(Intent(ctx, ExperimentalRpc::class.java))
+                    ctx.stopService(Intent(ctx, Rpc::class.java))
             },
             shape = RoundedCornerShape(20.dp, 44.dp, 20.dp, 44.dp),
             showSwitch = hasUsageAccess.value && hasNotificationAccess.value && userVerified,
-            tooltipText = stringResource(id = R.string.main_experimentalRpc_details),
-            featureDocsLink = ToolTipContent.EXPERIMENTAL_RPC_DOCS_LINK
+            tooltipText = stringResource(id = R.string.main_rpc_details),
+            featureDocsLink = ToolTipContent.RPC_DOCS_LINK
         )
     )
 }

@@ -30,13 +30,13 @@ class DialogActivity : Activity() {
 
     private fun showDialog() {
         val rpc = arrayOf(
-            getString(R.string.main_experimentalRpc)
+            getString(R.string.main_rpc)
         )
         val dialog = MaterialAlertDialogBuilder(ContextThemeWrapper(this, com.my.rpc.feature_rpc_base.R.style.MyTileDialogTheme))
             .setTitle(getString(R.string.choose_rpc))
             .setSingleChoiceItems(rpc, -1) { dialog, which ->
                 when (which) {
-                    0 -> startService(Intent(this, ExperimentalRpc::class.java))
+                    0 -> startService(Intent(this, Rpc::class.java))
                 }
                 dialog.dismiss()
                 finish()

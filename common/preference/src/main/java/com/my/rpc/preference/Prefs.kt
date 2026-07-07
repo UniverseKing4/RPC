@@ -143,7 +143,7 @@ object Prefs {
     const val LANGUAGE = "language"
     const val ENABLED_APPS = "enabled_apps"
     const val ENABLED_MEDIA_APPS = "enabled_media_apps"
-    const val ENABLED_EXPERIMENTAL_APPS = "enabled_experimental_apps"
+    const val ENABLED_RPC_APPS = "enabled_rpc_apps"
 
     //Media Rpc Preferences
     const val MEDIA_RPC_ARTIST_NAME = "media_rpc_artist_name"
@@ -230,32 +230,32 @@ object Prefs {
         "org.videolan.vlc",
     )
 
-    //Experimental RPC Preferences
-    const val EXPERIMENTAL_RPC_USE_APPS_RPC = "experimental_rpc_use_apps"
-    const val EXPERIMENTAL_RPC_USE_MEDIA_RPC = "experimental_rpc_use_media"
-    const val EXPERIMENTAL_RPC_TEMPLATE_NAME = "experimental_rpc_template_name"
-    const val EXPERIMENTAL_RPC_TEMPLATE_DETAILS = "experimental_rpc_template_details"
-    const val EXPERIMENTAL_RPC_TEMPLATE_STATE = "experimental_rpc_template_state"
-    const val EXPERIMENTAL_RPC_APP_ACTIVITY_TYPES = "experimental_rpc_app_activity_types"
-    const val EXPERIMENTAL_RPC_SHOW_COVER_ART = "experimental_rpc_show_cover_art"
-    const val EXPERIMENTAL_RPC_SHOW_APP_ICON = "experimental_rpc_show_app_icon"
-    const val EXPERIMENTAL_RPC_SHOW_PLAYBACK_STATE = "experimental_rpc_show_playback_state"
-    const val EXPERIMENTAL_RPC_SHOW_APP_AND_PAUSE_ICON = "experimental_rpc_show_app_and_pause_icon"
-    const val EXPERIMENTAL_RPC_ENABLE_TIMESTAMPS = "experimental_rpc_enable_timestamps"
-    const val EXPERIMENTAL_RPC_HIDE_ON_PAUSE = "experimental_rpc_hide_on_pause"
+    //RPC Preferences
+    const val RPC_USE_APPS_RPC = "rpc_use_apps"
+    const val RPC_USE_MEDIA_RPC = "rpc_use_media"
+    const val RPC_TEMPLATE_NAME = "rpc_template_name"
+    const val RPC_TEMPLATE_DETAILS = "rpc_template_details"
+    const val RPC_TEMPLATE_STATE = "rpc_template_state"
+    const val RPC_APP_ACTIVITY_TYPES = "rpc_app_activity_types"
+    const val RPC_SHOW_COVER_ART = "rpc_show_cover_art"
+    const val RPC_SHOW_APP_ICON = "rpc_show_app_icon"
+    const val RPC_SHOW_PLAYBACK_STATE = "rpc_show_playback_state"
+    const val RPC_SHOW_APP_AND_PAUSE_ICON = "rpc_show_app_and_pause_icon"
+    const val RPC_ENABLE_TIMESTAMPS = "rpc_enable_timestamps"
+    const val RPC_HIDE_ON_PAUSE = "rpc_hide_on_pause"
     fun saveAppActivityType(packageName: String, activityType: Int) {
-        val json = get(EXPERIMENTAL_RPC_APP_ACTIVITY_TYPES, "{}")
+        val json = get(RPC_APP_ACTIVITY_TYPES, "{}")
         val map: MutableMap<String, Int> = try {
             Json.decodeFromString(json)
         } catch (_: Exception) {
             mutableMapOf()
         }
         map[packageName] = activityType
-        set(EXPERIMENTAL_RPC_APP_ACTIVITY_TYPES, Json.encodeToString(map))
+        set(RPC_APP_ACTIVITY_TYPES, Json.encodeToString(map))
     }
 
     fun getAppActivityTypes(): Map<String, Int> {
-        val json = get(EXPERIMENTAL_RPC_APP_ACTIVITY_TYPES, "{}")
+        val json = get(RPC_APP_ACTIVITY_TYPES, "{}")
         return try {
             Json.decodeFromString(json)
         } catch (_: Exception) {
@@ -263,20 +263,20 @@ object Prefs {
         }
     }
 
-    fun isExperimentalAppEnabled(packageName: String?): Boolean {
-        val apps = get(ENABLED_EXPERIMENTAL_APPS, "[]")
+    fun isRpcAppEnabled(packageName: String?): Boolean {
+        val apps = get(ENABLED_RPC_APPS, "[]")
         val enabledPackages: ArrayList<String> = Json.decodeFromString(apps)
         return enabledPackages.contains(packageName)
     }
 
-    fun saveExperimentalAppToPrefs(pkg: String) {
-        val apps = get(ENABLED_EXPERIMENTAL_APPS, "[]")
+    fun saveRpcAppToPrefs(pkg: String) {
+        val apps = get(ENABLED_RPC_APPS, "[]")
         val enabledPackages: ArrayList<String> = Json.decodeFromString(apps)
         if (enabledPackages.contains(pkg))
             enabledPackages.remove(pkg)
         else
             enabledPackages.add(pkg)
 
-        set(ENABLED_EXPERIMENTAL_APPS, Json.encodeToString(enabledPackages))
+        set(ENABLED_RPC_APPS, Json.encodeToString(enabledPackages))
     }
 }

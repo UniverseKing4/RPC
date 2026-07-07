@@ -2,7 +2,7 @@
  *
  *  ******************************************************************
  *  *  * Copyright (C) 2022
- *  *  * ExperimentalRpcAppsScreen.kt is part of Rpc
+ *  *  * RpcAppsScreen.kt is part of Rpc
  *  *  *  and can not be copied and/or distributed without the express
  *  *  * permission of yzziK(Vaibhav)
  *  *  *****************************************************************
@@ -10,7 +10,7 @@
  *
  */
 
-package xyz.dead8309.feature_experimental_rpc.apps
+package xyz.dead8309.feature_rpc.apps
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -77,8 +77,8 @@ import com.my.rpc.resources.R
 import com.my.rpc.ui.components.BackButton
 import com.my.rpc.ui.components.KSwitch
 import com.my.rpc.ui.components.SearchBar
-import xyz.dead8309.feature_experimental_rpc.UiEvent
-import xyz.dead8309.feature_experimental_rpc.UiState
+import xyz.dead8309.feature_rpc.UiEvent
+import xyz.dead8309.feature_rpc.UiState
 
 @Composable
 private fun loadAppIcon(packageName: String): ImageBitmap? {
@@ -121,7 +121,7 @@ private fun getActivityTypeColor(type: String): Color {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ExperimentalRpcAppsScreen(
+fun RpcAppsScreen(
     onBackPressed: () -> Unit,
     state: UiState,
     onEvent: (UiEvent) -> Unit,

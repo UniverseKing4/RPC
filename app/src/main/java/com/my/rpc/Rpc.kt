@@ -46,9 +46,9 @@ import com.my.rpc.feature_startup.StartUp
 import com.my.rpc.navigation.Routes
 import com.my.rpc.navigation.animatedComposable
 import com.my.rpc.preference.Prefs
-import xyz.dead8309.feature_experimental_rpc.ExperimentalRpcScreen
-import xyz.dead8309.feature_experimental_rpc.ExperimentalRpcViewmodel
-import xyz.dead8309.feature_experimental_rpc.apps.ExperimentalRpcAppsScreen
+import xyz.dead8309.feature_rpc.RpcScreen
+import xyz.dead8309.feature_rpc.RpcViewmodel
+import xyz.dead8309.feature_rpc.apps.RpcAppsScreen
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalAnimationApi::class)
@@ -181,28 +181,28 @@ internal fun ComponentActivity.Rpc(
                 )
             }
 
-            val experimentalRpcViewModel by lazy {
-                viewModels<ExperimentalRpcViewmodel>()
+            val rpcViewModel by lazy {
+                viewModels<RpcViewmodel>()
             }
 
-            animatedComposable(Routes.EXPERIMENTAL_RPC) {
-                ExperimentalRpcScreen(
-                    state = experimentalRpcViewModel.value.uiState.collectAsState().value,
-                    onEvent = experimentalRpcViewModel.value::onEvent,
+            animatedComposable(Routes.RPC) {
+                RpcScreen(
+                    state = rpcViewModel.value.uiState.collectAsState().value,
+                    onEvent = rpcViewModel.value::onEvent,
                     onBackPressed = { navController.popBackStack() },
                     hasUsageAccess = usageAccessStatus.value,
                     hasNotificationAccess = notificationListenerAccess.value,
                     navigateToAppSelection = {
-                        navController.navigate(Routes.EXPERIMENTAL_RPC_APPS)
+                        navController.navigate(Routes.RPC_APPS)
                     },
                 )
             }
 
-            animatedComposable(Routes.EXPERIMENTAL_RPC_APPS) {
-                ExperimentalRpcAppsScreen(
+            animatedComposable(Routes.RPC_APPS) {
+                RpcAppsScreen(
                     onBackPressed = { navController.popBackStack() },
-                    state = experimentalRpcViewModel.value.uiState.collectAsState().value,
-                    onEvent = experimentalRpcViewModel.value::onEvent,
+                    state = rpcViewModel.value.uiState.collectAsState().value,
+                    onEvent = rpcViewModel.value::onEvent,
                 )
             }
         }

@@ -47,7 +47,7 @@ dependencies {
     implementation (projects.featureSettings)
     implementation (projects.featureLogs)
     implementation (projects.featureRpcBase)
-    implementation (projects.featureExperimentalRpc)
+    implementation (projects.featureRpc)
     implementation (projects.featureHome)
     implementation (projects.common.preference)
     implementation (projects.common.navigation)

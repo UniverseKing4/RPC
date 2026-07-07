@@ -39,11 +39,11 @@
     <shortcut
         android:enabled="true"
         android:icon="@drawable/shortcuts_dev_rpc"
-        android:shortcutId="experimentalRPC"
-        android:shortcutLongLabel="@string/main_experimentalRpc"
-        android:shortcutShortLabel="@string/start_experimentalRPC">
+        android:shortcutId="rpcRPC"
+        android:shortcutLongLabel="@string/main_rpc"
+        android:shortcutShortLabel="@string/start_rpc">
         <intent
-            android:action="com.my.rpc.intent.action.START_EXPERIMENTAL_RPC"
+            android:action="com.my.rpc.intent.action.START_RPC"
             android:targetClass="com.my.rpc.feature_rpc_base.services.ShortcutsActivity"
             android:targetPackage="com.my.rpc" />
     </shortcut>

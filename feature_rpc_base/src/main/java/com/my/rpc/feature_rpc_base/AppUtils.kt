@@ -16,7 +16,7 @@ package com.my.rpc.feature_rpc_base
 
 import android.app.ActivityManager
 import android.content.Context
-import com.my.rpc.feature_rpc_base.services.ExperimentalRpc
+import com.my.rpc.feature_rpc_base.services.Rpc
 
 import javax.inject.Singleton
 
@@ -28,8 +28,8 @@ object AppUtils {
     }
 
 
-    fun experimentalRpcRunning(): Boolean {
-        return checkForRunningService<ExperimentalRpc>()
+    fun rpcRunning(): Boolean {
+        return checkForRunningService<Rpc>()
     }
     private inline fun <reified T : Any> checkForRunningService(): Boolean {
         for (runningServiceInfo in activityManager.getRunningServices(

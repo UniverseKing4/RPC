@@ -10,7 +10,7 @@
  *
  */
 
-package xyz.dead8309.feature_experimental_rpc
+package xyz.dead8309.feature_rpc
 
 import androidx.compose.runtime.Immutable
 import com.my.rpc.data.utils.AppsInfo

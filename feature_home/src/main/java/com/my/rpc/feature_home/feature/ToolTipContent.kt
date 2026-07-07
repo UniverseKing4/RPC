@@ -18,10 +18,10 @@ object ToolTipContent {
     const val MEDIA_RPC_DOCS = "Rpc allows you to share your current media activity on Discord, such as the song or video you're currently listening to or watching."
     const val CONSOLE_RPC_DOCS = "Rpc allows you to use some predefined presets to set your presence on Discord."
     const val CUSTOM_RPC_DOCS = "Rpc allows you to create your own fully customisable rich presence for Discord."
-    const val EXPERIMENTAL_RPC_DOCS = "Experimental RPC is a feature in Rpc that constantly switches between Apps RPC and Media RPC."
+    const val RPC_DOCS = "RPC is a feature in Rpc that constantly switches between Apps RPC and Media RPC."
     const val APP_DETECTION_DOCS_LINK = "$BASE_DOCS_URL/app"
     const val MEDIA_RPC_DOCS_LINK = "$BASE_DOCS_URL/media"
     const val CONSOLE_RPC_DOCS_LINK = "$BASE_DOCS_URL/console"
     const val CUSTOM_RPC_DOCS_LINK = "$BASE_DOCS_URL/custom"
-    const val EXPERIMENTAL_RPC_DOCS_LINK = "$BASE_DOCS_URL/experimental"
+    const val RPC_DOCS_LINK = "$BASE_DOCS_URL/rpc"
 }

@@ -2,7 +2,7 @@
  *
  *  ******************************************************************
  *  *  * Copyright (C) 2022
- *  *  * ExperimentalRpc.kt is part of Rpc
+ *  *  * Rpc.kt is part of Rpc
  *  *  *  and can not be copied and/or distributed without the express
  *  *  * permission of yzziK(Vaibhav)
  *  *  *****************************************************************
@@ -51,11 +51,11 @@ import kotlinx.coroutines.runBlocking
 import kotlinx.serialization.json.Json
 import javax.inject.Inject
 
-private const val TAG = "ExperimentalRPC"
+private const val TAG = "RpcRPC"
 
 @Suppress("DEPRECATION")
 @AndroidEntryPoint
-class ExperimentalRpc : Service() {
+class Rpc : Service() {
 
     @Inject
     lateinit var scope: CoroutineScope
@@ -85,19 +85,19 @@ class ExperimentalRpc : Service() {
 
     private var isMediaSessionActive = false
 
-    private var useAppsRpc = Prefs[Prefs.EXPERIMENTAL_RPC_USE_APPS_RPC, true]
-    private var useMediaRpc = Prefs[Prefs.EXPERIMENTAL_RPC_USE_MEDIA_RPC, true]
+    private var useAppsRpc = Prefs[Prefs.RPC_USE_APPS_RPC, true]
+    private var useMediaRpc = Prefs[Prefs.RPC_USE_MEDIA_RPC, true]
 
     private var templateName =
-        Prefs[Prefs.EXPERIMENTAL_RPC_TEMPLATE_NAME, TemplateKeys.APP_NAME]
+        Prefs[Prefs.RPC_TEMPLATE_NAME, TemplateKeys.APP_NAME]
     private var templateDetails =
-        Prefs[Prefs.EXPERIMENTAL_RPC_TEMPLATE_DETAILS, TemplateKeys.MEDIA_TITLE]
+        Prefs[Prefs.RPC_TEMPLATE_DETAILS, TemplateKeys.MEDIA_TITLE]
     private var templateState =
-        Prefs[Prefs.EXPERIMENTAL_RPC_TEMPLATE_STATE, TemplateKeys.MEDIA_ARTIST]
+        Prefs[Prefs.RPC_TEMPLATE_STATE, TemplateKeys.MEDIA_ARTIST]
 
     private var appActivityTypes: Map<String, Int> = Prefs.getAppActivityTypes()
-    private var enabledExperimentalApps: List<String> = try {
-        Json.decodeFromString(Prefs[Prefs.ENABLED_EXPERIMENTAL_APPS, "[]"])
+    private var enabledRpcApps: List<String> = try {
+        Json.decodeFromString(Prefs[Prefs.ENABLED_RPC_APPS, "[]"])
     } catch (_: Exception) {
         emptyList()
     }
@@ -106,14 +106,14 @@ class ExperimentalRpc : Service() {
         if (intent?.action.equals(Constants.ACTION_STOP_SERVICE)) stopSelf()
         else if (intent?.action.equals(Constants.ACTION_RESTART_SERVICE)) {
             stopSelf()
-            startService(Intent(this, ExperimentalRpc::class.java))
+            startService(Intent(this, Rpc::class.java))
         } else {
-            val stopIntent = Intent(this, ExperimentalRpc::class.java)
+            val stopIntent = Intent(this, Rpc::class.java)
             stopIntent.action = Constants.ACTION_STOP_SERVICE
             val pendingIntent: PendingIntent = PendingIntent.getService(
                 this, 0, stopIntent, PendingIntent.FLAG_IMMUTABLE
             )
-            val restartIntent = Intent(this, ExperimentalRpc::class.java)
+            val restartIntent = Intent(this, Rpc::class.java)
             restartIntent.action = Constants.ACTION_RESTART_SERVICE
             val restartPendingIntent: PendingIntent = PendingIntent.getService(
                 this, 0, restartIntent, PendingIntent.FLAG_IMMUTABLE
@@ -143,14 +143,14 @@ class ExperimentalRpc : Service() {
             )
 
             // Always reload settings on start
-            templateName = Prefs[Prefs.EXPERIMENTAL_RPC_TEMPLATE_NAME, TemplateKeys.APP_NAME]
-            templateDetails = Prefs[Prefs.EXPERIMENTAL_RPC_TEMPLATE_DETAILS, TemplateKeys.MEDIA_TITLE]
-            templateState = Prefs[Prefs.EXPERIMENTAL_RPC_TEMPLATE_STATE, TemplateKeys.MEDIA_ARTIST]
-            useAppsRpc = Prefs[Prefs.EXPERIMENTAL_RPC_USE_APPS_RPC, true]
-            useMediaRpc = Prefs[Prefs.EXPERIMENTAL_RPC_USE_MEDIA_RPC, true]
+            templateName = Prefs[Prefs.RPC_TEMPLATE_NAME, TemplateKeys.APP_NAME]
+            templateDetails = Prefs[Prefs.RPC_TEMPLATE_DETAILS, TemplateKeys.MEDIA_TITLE]
+            templateState = Prefs[Prefs.RPC_TEMPLATE_STATE, TemplateKeys.MEDIA_ARTIST]
+            useAppsRpc = Prefs[Prefs.RPC_USE_APPS_RPC, true]
+            useMediaRpc = Prefs[Prefs.RPC_USE_MEDIA_RPC, true]
             appActivityTypes = Prefs.getAppActivityTypes()
-            enabledExperimentalApps = try {
-                Json.decodeFromString(Prefs[Prefs.ENABLED_EXPERIMENTAL_APPS, "[]"])
+            enabledRpcApps = try {
+                Json.decodeFromString(Prefs[Prefs.ENABLED_RPC_APPS, "[]"])
             } catch (_: Exception) {
                 emptyList()
             }
@@ -161,7 +161,7 @@ class ExperimentalRpc : Service() {
             var mediaActiveInitially = false
             if (useMediaRpc && initialMediaSessions.isNotEmpty()) {
                 val firstActiveMediaController = initialMediaSessions.firstOrNull {
-                    enabledExperimentalApps.contains(it.packageName)
+                    enabledRpcApps.contains(it.packageName)
                 }
                 if (firstActiveMediaController != null) {
                     mediaActiveInitially = true
@@ -191,7 +191,7 @@ class ExperimentalRpc : Service() {
                 if (
                     currentApp.name.isNotEmpty() &&
                     currentApp.packageName != currentPackageName &&
-                    enabledExperimentalApps.contains(currentApp.packageName)
+                    enabledRpcApps.contains(currentApp.packageName)
                 ) {
                     currentPackageName = currentApp.packageName
                     updatePresence(appInfo = currentApp.copy(time = startTimestamps))
@@ -226,7 +226,7 @@ class ExperimentalRpc : Service() {
 
         // Hide media on pause if enabled
         if (richMediaInfo != null &&
-            Prefs[Prefs.EXPERIMENTAL_RPC_HIDE_ON_PAUSE, false] &&
+            Prefs[Prefs.RPC_HIDE_ON_PAUSE, false] &&
             (richMediaInfo.playbackState == PlaybackState.STATE_PAUSED ||
                     richMediaInfo.playbackState == PlaybackState.STATE_STOPPED)
         ) {
@@ -264,13 +264,13 @@ class ExperimentalRpc : Service() {
             finalState = processor.process(templateState) ?: richMediaInfo?.artist
 
             finalLargeImage = when {
-                Prefs[Prefs.EXPERIMENTAL_RPC_SHOW_COVER_ART, true] -> richMediaInfo?.coverArt
-                Prefs[Prefs.EXPERIMENTAL_RPC_SHOW_APP_ICON, false] -> richMediaInfo?.appIcon
+                Prefs[Prefs.RPC_SHOW_COVER_ART, true] -> richMediaInfo?.coverArt
+                Prefs[Prefs.RPC_SHOW_APP_ICON, false] -> richMediaInfo?.appIcon
                 else -> null
             }
 
             finalSmallImage = when {
-                Prefs[Prefs.EXPERIMENTAL_RPC_SHOW_APP_AND_PAUSE_ICON, false] -> {
+                Prefs[Prefs.RPC_SHOW_APP_AND_PAUSE_ICON, false] -> {
                     if (richMediaInfo?.playbackState == PlaybackState.STATE_PAUSED || richMediaInfo?.playbackState == PlaybackState.STATE_STOPPED) {
                         richMediaInfo?.playbackStateIcon
                     } else {
@@ -278,10 +278,10 @@ class ExperimentalRpc : Service() {
                     }
                 }
 
-                Prefs[Prefs.EXPERIMENTAL_RPC_SHOW_PLAYBACK_STATE, true] ->
+                Prefs[Prefs.RPC_SHOW_PLAYBACK_STATE, true] ->
                     richMediaInfo?.playbackStateIcon
 
-                Prefs[Prefs.EXPERIMENTAL_RPC_SHOW_APP_ICON, false] && finalLargeImage != richMediaInfo?.appIcon ->
+                Prefs[Prefs.RPC_SHOW_APP_ICON, false] && finalLargeImage != richMediaInfo?.appIcon ->
                     richMediaInfo?.appIcon
 
                 else -> null
@@ -291,7 +291,7 @@ class ExperimentalRpc : Service() {
             finalSmallText =
                 if (finalSmallImage == richMediaInfo?.appIcon) richMediaInfo?.appName else null
 
-            finalTimestamps = if (Prefs[Prefs.EXPERIMENTAL_RPC_ENABLE_TIMESTAMPS, true])
+            finalTimestamps = if (Prefs[Prefs.RPC_ENABLE_TIMESTAMPS, true])
                 richMediaInfo?.timestamps else null
 
         } else if (currentContextIsApp) {
@@ -306,7 +306,7 @@ class ExperimentalRpc : Service() {
             finalLargeText = appInfo?.largeText
             finalSmallText = appInfo?.smallText
             finalTimestamps =
-                if (Prefs[Prefs.EXPERIMENTAL_RPC_ENABLE_TIMESTAMPS, true]) appInfo?.time else null
+                if (Prefs[Prefs.RPC_ENABLE_TIMESTAMPS, true]) appInfo?.time else null
         } else {
             logger.d(TAG, "No active context (App or Media) or both disabled.")
             if (rpcRPC.isRpcRunning()) {
@@ -344,7 +344,7 @@ class ExperimentalRpc : Service() {
                     time = finalTimestamps,
                     packageName = effectivePackageName ?: ""
                 ),
-                enableTimestamps = Prefs[Prefs.EXPERIMENTAL_RPC_ENABLE_TIMESTAMPS, true]
+                enableTimestamps = Prefs[Prefs.RPC_ENABLE_TIMESTAMPS, true]
             )
 
         } else {
@@ -389,7 +389,7 @@ class ExperimentalRpc : Service() {
             Constants.NOTIFICATION_ID, notificationBuilder
                 .setContentTitle(notifTitle)
                 .setContentText(notifText)
-                .setLargeIcon(rpcImage = finalLargeImage, context = this@ExperimentalRpc)
+                .setLargeIcon(rpcImage = finalLargeImage, context = this@Rpc)
                 .build()
         )
     }
@@ -399,7 +399,7 @@ class ExperimentalRpc : Service() {
         isEvent: Boolean = true,
     ) {
         if (!useMediaRpc) {
-            logger.i(TAG, "Media part of Experimental RPC is disabled.")
+            logger.i(TAG, "Media part of RPC is disabled.")
             if (useAppsRpc && !isMediaSessionActive) {
                 scope.coroutineContext.cancelChildren()
                 startAppDetectionCoroutine()
@@ -422,7 +422,7 @@ class ExperimentalRpc : Service() {
 
         if (mediaSessions?.isNotEmpty() == true) {
             currentMediaController = mediaSessions.firstOrNull {
-                enabledExperimentalApps.contains(it.packageName)
+                enabledRpcApps.contains(it.packageName)
             }
             currentMediaController?.registerCallback(mediaControllerCallback)
         }

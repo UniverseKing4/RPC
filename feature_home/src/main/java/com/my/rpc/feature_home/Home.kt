@@ -290,7 +290,7 @@ val fakeFeatures = listOf(
         title = "RPC",
         icon = R.drawable.ic_dev_rpc,
         shape = RoundedCornerShape(20.dp, 44.dp, 20.dp, 44.dp),
-        tooltipText = ToolTipContent.EXPERIMENTAL_RPC_DOCS
+        tooltipText = ToolTipContent.RPC_DOCS
     )
 )
 

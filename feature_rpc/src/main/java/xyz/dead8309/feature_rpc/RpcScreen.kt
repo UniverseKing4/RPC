@@ -2,7 +2,7 @@
  *
  *  ******************************************************************
  *  *  * Copyright (C) 2022
- *  *  * ExperimentalRpcScreen.kt is part of Rpc
+ *  *  * RpcScreen.kt is part of Rpc
  *  *  *  and can not be copied and/or distributed without the express
  *  *  * permission of yzziK(Vaibhav)
  *  *  *****************************************************************
@@ -10,7 +10,7 @@
  *
  */
 
-package xyz.dead8309.feature_experimental_rpc
+package xyz.dead8309.feature_rpc
 
 import android.content.Intent
 import android.provider.Settings
@@ -56,7 +56,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.my.rpc.data.rpc.TemplateKeys
 import com.my.rpc.feature_rpc_base.AppUtils
-import com.my.rpc.feature_rpc_base.services.ExperimentalRpc
+import com.my.rpc.feature_rpc_base.services.Rpc
 import com.my.rpc.resources.R
 import com.my.rpc.ui.components.BackButton
 import com.my.rpc.ui.components.RpcFieldWithCompletions
@@ -75,7 +75,7 @@ private val completions = listOf(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ExperimentalRpcScreen(
+fun RpcScreen(
     onBackPressed: () -> Unit,
     state: UiState,
     hasUsageAccess: Boolean,
@@ -84,7 +84,7 @@ fun ExperimentalRpcScreen(
     onEvent: (UiEvent) -> Unit,
 ) {
     val context = LocalContext.current
-    var experimentalRpcRunning by remember { mutableStateOf(AppUtils.experimentalRpcRunning()) }
+    var rpcRunning by remember { mutableStateOf(AppUtils.rpcRunning()) }
     val scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior(
         rememberTopAppBarState(),
         canScroll = { true }
@@ -98,7 +98,7 @@ fun ExperimentalRpcScreen(
             LargeTopAppBar(
                 title = {
                     Text(
-                        text = stringResource(id = R.string.main_experimentalRpc),
+                        text = stringResource(id = R.string.main_rpc),
                         style = MaterialTheme.typography.headlineLarge,
                     )
                 },
@@ -138,17 +138,17 @@ fun ExperimentalRpcScreen(
             }
 
             SwitchBar(
-                title = stringResource(id = R.string.enable_experimental_rpc),
-                isChecked = experimentalRpcRunning,
+                title = stringResource(id = R.string.enable_rpc),
+                isChecked = rpcRunning,
                 enabled = hasUsageAccess && hasNotificationAccess,
             ) {
-                experimentalRpcRunning = !experimentalRpcRunning
-                when (experimentalRpcRunning) {
+                rpcRunning = !rpcRunning
+                when (rpcRunning) {
                     true -> {
-                        context.startService(Intent(context, ExperimentalRpc::class.java))
+                        context.startService(Intent(context, Rpc::class.java))
                     }
 
-                    false -> context.stopService(Intent(context, ExperimentalRpc::class.java))
+                    false -> context.stopService(Intent(context, Rpc::class.java))
                 }
             }
             LazyColumn {
@@ -158,7 +158,7 @@ fun ExperimentalRpcScreen(
                 item {
                     PreferenceSwitch(
                         title = stringResource(R.string.enable_appsRpc),
-                        description = stringResource(R.string.experimental_rpc_detect_apps),
+                        description = stringResource(R.string.rpc_detect_apps),
                         isChecked = state.isAppsRpcPartEnabled,
                         onClick = {
                             onEvent(UiEvent.ToggleAppsRpcPart(!state.isAppsRpcPartEnabled))
@@ -177,7 +177,7 @@ fun ExperimentalRpcScreen(
                 item {
                     PreferenceSwitch(
                         title = stringResource(R.string.enable_mediaRpc),
-                        description = stringResource(R.string.experimental_rpc_detect_media),
+                        description = stringResource(R.string.rpc_detect_media),
                         isChecked = state.isMediaRpcPartEnabled,
                         onClick = {
                             onEvent(UiEvent.ToggleMediaRpcPart(!state.isMediaRpcPartEnabled))
