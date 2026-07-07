@@ -20,10 +20,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.my.rpc.feature_rpc_base.AppUtils
-import com.my.rpc.feature_rpc_base.services.AppDetectionService
-import com.my.rpc.feature_rpc_base.services.CustomRpcService
 import com.my.rpc.feature_rpc_base.services.ExperimentalRpc
-import com.my.rpc.feature_rpc_base.services.MediaRpcService
 import com.my.rpc.navigation.Routes
 import com.my.rpc.preference.Prefs
 import com.my.rpc.resources.R
@@ -38,7 +35,7 @@ fun homeFeaturesProvider(
     val ctx = LocalContext.current
     return listOf(
         HomeFeature(
-            title = "RPC option feature",
+            title = "RPC",
             icon = R.drawable.ic_dev_rpc,
             route = Routes.EXPERIMENTAL_RPC,
             onClick = { navigateTo(it) },

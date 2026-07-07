@@ -90,7 +90,6 @@ fun Home(
     user: User?,
     navigateToProfile: () -> Unit,
     navigateToStyleAndAppearance: () -> Unit,
-    navigateToLanguages: () -> Unit,
     navigateToAbout: () -> Unit,
     navigateToRpcSettings: () -> Unit,
     navigateToLogsScreen: () -> Unit,
@@ -137,7 +136,6 @@ fun Home(
                     },
                     navigateToProfile = navigateToProfile,
                     navigateToStyleAndAppearance = navigateToStyleAndAppearance,
-                    navigateToLanguages = navigateToLanguages,
                     navigateToAbout = navigateToAbout,
                     navigateToRpcSettings = navigateToRpcSettings,
                     navigateToLogsScreen = navigateToLogsScreen
@@ -169,48 +167,7 @@ fun Home(
                         }
                     },
                     actions = {
-                        if (showBadge) {
-                            BadgedBox(
-                                badge = {
-                                    Badge(
-                                        modifier = Modifier
-                                            .offset(8.dp, (-14).dp)
-                                            .size(8.dp)
-                                            .clip(CircleShape),
-                                        containerColor = MaterialTheme.colorScheme.error,
-                                        contentColor = MaterialTheme.colorScheme.onError,
-                                    )
-                                }
-                            ) {
-                                Icon(
-                                    imageVector = Icons.Outlined.Update,
-                                    contentDescription = "Update",
-                                    modifier = Modifier.clickable {
-                                        Toast.makeText(
-                                            ctx,
-                                            ctx.getString(R.string.update_check_for_update),
-                                            Toast.LENGTH_SHORT
-                                        ).show()
-                                        checkForUpdates()
-                                        showUpdateDialog = true
-                                    }
-                                )
-                            }
-                        } else {
-                            Icon(
-                                imageVector = Icons.Outlined.Update,
-                                contentDescription = "Update",
-                                modifier = Modifier.clickable {
-                                    Toast.makeText(
-                                        ctx,
-                                        ctx.getString(R.string.update_check_for_update),
-                                        Toast.LENGTH_SHORT
-                                    ).show()
-                                    checkForUpdates()
-                                    showUpdateDialog = true
-                                }
-                            )
-                        }
+
                         Spacer(modifier = Modifier.width(8.dp))
                         IconButton(onClick = { navigateToProfile() }) {
                             if (user != null) {
@@ -322,7 +279,6 @@ fun HomeScreenPreview() {
         user = fakeUser,
         navigateToProfile = { },
         navigateToStyleAndAppearance = { },
-        navigateToLanguages = { },
         navigateToAbout = { },
         navigateToRpcSettings = { }) {
 
@@ -331,7 +287,7 @@ fun HomeScreenPreview() {
 
 val fakeFeatures = listOf(
     HomeFeature(
-        title = "RPC option feature",
+        title = "RPC",
         icon = R.drawable.ic_dev_rpc,
         shape = RoundedCornerShape(20.dp, 44.dp, 20.dp, 44.dp),
         tooltipText = ToolTipContent.EXPERIMENTAL_RPC_DOCS

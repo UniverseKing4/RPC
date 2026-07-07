@@ -16,6 +16,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.aspectRatio
@@ -63,7 +64,7 @@ fun Features(
             MaterialTheme.colorScheme.secondaryContainer.copy(alpha = 0.6f)
         )
     )
-    val featureSize = (LocalConfiguration.current.screenWidthDp.dp / 2)
+    val featureWidth = LocalConfiguration.current.screenWidthDp.dp
     FlowRow(
         mainAxisSize = SizeMode.Expand,
         mainAxisAlignment = FlowMainAxisAlignment.SpaceBetween
@@ -99,9 +100,9 @@ fun Features(
                     },
                 ) {
                     Box(modifier = Modifier
-                        .size(featureSize)
+                        .fillMaxWidth()
+                        .height(180.dp)
                         .padding(9.dp)
-                        .aspectRatio(1f)
                         .clip(homeItems[i].shape)
                         .background(
                             brush = if (homeItems[i].isChecked) {
@@ -133,7 +134,7 @@ fun Features(
                             )
                             Text(
                                 text = homeItems[i].title,
-                                style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.W500),
+                                style = MaterialTheme.typography.displaySmall.copy(fontWeight = FontWeight.W600),
                                 color = if (homeItems[i].isChecked) MaterialTheme.colorScheme.onPrimaryContainer
                                 else MaterialTheme.colorScheme.onSecondaryContainer,
                                 modifier = Modifier.weight(2f)
@@ -149,7 +150,7 @@ fun Features(
                                     Text(
                                         text = if (homeItems[i].isChecked) stringResource(id = R.string.android_on)
                                         else stringResource(id = R.string.android_off),
-                                        style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.W600),
+                                        style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.W600),
                                         color = if (homeItems[i].isChecked) MaterialTheme.colorScheme.onPrimaryContainer
                                         else MaterialTheme.colorScheme.onSecondaryContainer
                                     )
@@ -169,9 +170,9 @@ fun Features(
             }
             else {
                 Box(modifier = Modifier
-                    .size(featureSize)
+                    .fillMaxWidth()
+                    .height(180.dp)
                     .padding(9.dp)
-                    .aspectRatio(1f)
                     .clip(homeItems[i].shape)
                     .background(
                         brush = if (homeItems[i].isChecked) {

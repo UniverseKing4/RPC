@@ -1,5 +1,5 @@
 import com.android.build.gradle.LibraryExtension
-import kizzy.gradle.plugin.configureAndroidCompose
+import rpc.gradle.plugin.configureAndroidCompose
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.getByType

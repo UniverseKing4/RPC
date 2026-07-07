@@ -59,8 +59,6 @@ import com.google.accompanist.permissions.PermissionStatus
 import com.google.accompanist.permissions.isGranted
 import com.google.accompanist.permissions.rememberPermissionState
 import com.my.rpc.preference.Prefs
-import com.my.rpc.preference.getLanguageDesc
-import com.my.rpc.preference.languages
 import com.my.rpc.resources.R
 import com.my.rpc.ui.components.Subtitle
 
@@ -214,16 +212,7 @@ fun StartUp(
                         navigateToLogin()
                     }
                 }
-                item {
-                    SetupCard(title = stringResource(id = R.string.language),
-                        description = buildString {
-                            languages.keys.forEach { key ->
-                                this.append(getLanguageDesc(key) + ", ")
-                            }
-                        }) {
-                        navigateToLanguages()
-                    }
-                }
+
             }
             Row(
                 modifier = Modifier

@@ -39,7 +39,6 @@ import com.my.rpc.feature_profile.ui.login.LoginScreen
 import com.my.rpc.feature_profile.ui.user.UserScreen
 import com.my.rpc.feature_profile.ui.user.UserViewModel
 import com.my.rpc.feature_rpc_base.AppUtils
-import com.my.rpc.feature_settings.language.Language
 import com.my.rpc.feature_settings.rpc_settings.RpcSettings
 import com.my.rpc.feature_settings.style.Appearance
 import com.my.rpc.feature_settings.style.DarkThemePreferences
@@ -69,11 +68,6 @@ internal fun ComponentActivity.Rpc(
                 StartUp(
                     usageAccessStatus = usageAccessStatus,
                     mediaControlStatus = notificationListenerAccess,
-                    navigateToLanguages = {
-                        navController.navigate(Routes.LANGUAGES) {
-                            launchSingleTop = true
-                        }
-                    },
                     navigateToHome = {
                         Prefs[Prefs.IS_FIRST_LAUNCHED] = false
                         navController.navigate(Routes.HOME) {
@@ -116,9 +110,6 @@ internal fun ComponentActivity.Rpc(
                     navigateToStyleAndAppearance = {
                         navController.navigate(Routes.STYLE_AND_APPEARANCE)
                     },
-                    navigateToLanguages = {
-                        navController.navigate(Routes.LANGUAGES)
-                    },
                     navigateToAbout = {
                         navController.navigate(Routes.ABOUT)
                     },
@@ -151,12 +142,6 @@ internal fun ComponentActivity.Rpc(
                 }
             }
 
-            animatedComposable(Routes.LANGUAGES) {
-                Language(
-                    onBackPressed = { navController.popBackStack() },
-                    updateLocaleLanguage = MainActivity::setLanguage
-                )
-            }
             animatedComposable(Routes.STYLE_AND_APPEARANCE) {
                 Appearance(onBackPressed = {
                     navController.popBackStack()

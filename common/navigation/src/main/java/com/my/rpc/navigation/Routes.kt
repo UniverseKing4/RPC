@@ -32,7 +32,7 @@ class Routes {
         const val EXPERIMENTAL_RPC_APPS = "experimental_rpc_apps"
 
         /* Settings Screens */
-        const val LANGUAGES = "languages"
+
         const val STYLE_AND_APPEARANCE = "style_and_appearance"
         const val RPC_SETTINGS = "rpc_settings"
 

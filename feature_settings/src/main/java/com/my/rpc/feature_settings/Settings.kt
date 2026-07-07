@@ -67,7 +67,6 @@ fun SettingsDrawer(
     onRequestAddTile: () -> Unit,
     navigateToProfile: () -> Unit,
     navigateToStyleAndAppearance: () -> Unit,
-    navigateToLanguages: () -> Unit,
     navigateToAbout: () -> Unit,
     navigateToRpcSettings: () -> Unit,
     navigateToLogsScreen: () -> Unit,
@@ -266,7 +265,6 @@ fun SettingsDrawerPreview() {
             user = null,
             navigateToProfile = {},
             navigateToStyleAndAppearance = {},
-            navigateToLanguages = {},
             navigateToAbout = {},
             navigateToRpcSettings = {},
             navigateToLogsScreen = {}

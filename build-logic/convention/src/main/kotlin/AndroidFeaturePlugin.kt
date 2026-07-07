@@ -2,7 +2,7 @@
  *
  *  ******************************************************************
  *  *  * Copyright (C) 2022
- *  *  * AndroidFeaturePlugin.kt is part of Kizzy
+ *  *  * AndroidFeaturePlugin.kt is part of Rpc
  *  *  *  and can not be copied and/or distributed without the express
  *  *  * permission of yzziK(Vaibhav)
  *  *  *****************************************************************
@@ -21,8 +21,8 @@ class AndroidFeaturePlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             pluginManager.apply {
-                apply("kizzy.android.library")
-                apply("kizzy.android.hilt")
+                apply("rpc.android.library")
+                apply("rpc.android.hilt")
             }
             val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
 
