@@ -83,9 +83,6 @@ import kotlinx.coroutines.launch
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun Home(
-    state: HomeScreenState,
-    checkForUpdates: () -> Unit,
-    showBadge: Boolean,
     features: List<HomeFeature>,
     user: User?,
     navigateToProfile: () -> Unit,
@@ -97,9 +94,6 @@ fun Home(
     val ctx = LocalContext.current
     var homeItems by remember {
         mutableStateOf(features)
-    }
-    var showUpdateDialog by remember {
-        mutableStateOf(false)
     }
     val drawerState = rememberDrawerState(DrawerValue.Closed)
     val scope = rememberCoroutineScope()
@@ -217,35 +211,7 @@ fun Home(
                     }
                 }
             }
-            when (state) {
-                is HomeScreenState.LoadingCompleted -> {
-                    if (showUpdateDialog) {
-                        if (state.release.toVersion()
-                                .whetherNeedUpdate(BuildConfig.VERSION_NAME.toVersion())
-                        ) {
-                            with(state.release) {
-                                UpdateDialog(
-                                    newVersionPublishDate = publishedAt ?: "",
-                                    newVersionSize = assets?.getOrNull(0)?.size ?: 0,
-                                    newVersionLog = body ?: "",
-                                    onDismissRequest = {
-                                        showUpdateDialog = false
-                                    },
-                                )
-                            }
-                        } else {
-                            Toast.makeText(
-                                ctx,
-                                ctx.getString(R.string.update_no_updates_available),
-                                Toast.LENGTH_SHORT
-                            ).show()
-                            showUpdateDialog = false
-                        }
-                    }
-                }
 
-                else -> {}
-            }
         }
     }
 }
@@ -272,9 +238,6 @@ fun OnLifecycleEvent(onEvent: (owner: LifecycleOwner, event: Lifecycle.Event) ->
 @Composable
 fun HomeScreenPreview() {
     Home(
-        state = HomeScreenState.Loading,
-        checkForUpdates = {},
-        showBadge = true,
         features = fakeFeatures,
         user = fakeUser,
         navigateToProfile = { },

@@ -50,12 +50,6 @@ class ApiService @Inject constructor(
         }
     }
 
-    suspend fun getGames() = runCatching {
-        client.get {
-            url("$baseUrl/games")
-        }
-    }
-
     suspend fun getUser(userid: String) = runCatching {
         client.get {
             url("$baseUrl/user/$userid")
@@ -68,9 +62,5 @@ class ApiService @Inject constructor(
         }
     }
 
-    suspend fun checkForUpdate() = runCatching {
-        client.get {
-            url("$githubBaseUrl/repos/UniverseKing4/Discord-App-RPC/releases/latest")
-        }
-    }
+
 }

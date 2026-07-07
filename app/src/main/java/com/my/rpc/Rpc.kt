@@ -31,7 +31,7 @@ import com.my.rpc.feature_about.about.About
 import com.my.rpc.feature_about.about.Credits
 import com.my.rpc.feature_about.about.CreditsScreenViewModel
 import com.my.rpc.feature_home.Home
-import com.my.rpc.feature_home.HomeScreenViewModel
+
 import com.my.rpc.feature_home.feature.homeFeaturesProvider
 import com.my.rpc.feature_logs.LogScreen
 import com.my.rpc.feature_logs.LogsViewModel
@@ -79,24 +79,8 @@ internal fun ComponentActivity.Rpc(
                     })
             }
             animatedComposable(Routes.HOME) {
-                val release = Prefs.getSavedLatestRelease()
                 val user = Prefs.getUser()
-                val viewModel by viewModels<HomeScreenViewModel>()
-                val state = viewModel.aboutScreenState.collectAsState().value
-                val showBadge = release
-                    ?.toVersion()
-                    ?.whetherNeedUpdate(BuildConfig.VERSION_NAME.toVersion())
-                    ?: false
                 Home(
-                    state = state,
-                    checkForUpdates = {
-                        if (release != null && release.toVersion() > BuildConfig.VERSION_NAME.toVersion()) {
-                            viewModel.setReleaseFromPrefs(release)
-                        } else {
-                            viewModel.getLatestUpdate()
-                        }
-                    },
-                    showBadge = showBadge,
                     features = homeFeaturesProvider(
                         navigateTo = { navController.navigate(it) },
                         hasUsageAccess = usageAccessStatus,
