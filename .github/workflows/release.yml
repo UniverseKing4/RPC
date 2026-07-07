@@ -37,12 +37,12 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
-      - name: Assemble APK
-        run: ./gradlew assembleDebug
+      - name: Assemble Release APK
+        run: ./gradlew assembleRelease
 
       - name: Rename APK for Release
         run: |
-          mv app/build/outputs/apk/debug/app-debug.apk Discord-App-RPC.apk
+          mv app/build/outputs/apk/release/app-release.apk Discord-App-RPC.apk
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
