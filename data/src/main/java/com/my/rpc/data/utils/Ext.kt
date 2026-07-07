@@ -163,3 +163,33 @@ fun Context.shareFile(file: File?) {
         .addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
     this.startActivity(Intent.createChooser(intent, "Share File With"))
 }
+
+fun String.cleanAppName(): String {
+    var name = this
+    val suffixes = listOf(
+        " Morphe", " ReVanced Extended", " ReVanced", "-ReVanced",
+        " Vanced", " Extended", " Mod", " Premium"
+    )
+    for (suffix in suffixes) {
+        name = name.replace(suffix, "", ignoreCase = true)
+    }
+    return name.trim()
+}
+
+fun Context.getLauncherAppName(packageName: String): String {
+    val pm = this.packageManager
+    val intent = Intent(Intent.ACTION_MAIN).apply {
+        addCategory(Intent.CATEGORY_LAUNCHER)
+        setPackage(packageName)
+    }
+    val resolveInfos = pm.queryIntentActivities(intent, 0)
+    if (resolveInfos.isNotEmpty()) {
+        return resolveInfos[0].loadLabel(pm).toString()
+    }
+    return try {
+        val appInfo = pm.getApplicationInfo(packageName, 0)
+        pm.getApplicationLabel(appInfo).toString()
+    } catch (e: PackageManager.NameNotFoundException) {
+        packageName
+    }
+}

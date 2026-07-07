@@ -22,6 +22,8 @@ import com.blankj.utilcode.util.AppUtils
 import com.my.rpc.data.rpc.Constants.APPLICATION_ID
 import com.my.rpc.data.rpc.RpcImage
 import com.my.rpc.data.rpc.Timestamps
+import com.my.rpc.data.utils.cleanAppName
+import com.my.rpc.data.utils.getLauncherAppName
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 
@@ -52,7 +54,7 @@ class GetCurrentPlayingMediaAll @Inject constructor(
         for (mediaController in sessions) {
             val metadata = mediaController.metadata
             val title = metadata?.getString(MediaMetadata.METADATA_KEY_TITLE)
-            val appName = AppUtils.getAppName(mediaController.packageName)
+            val appName = context.getLauncherAppName(mediaController.packageName).cleanAppName()
             val author = metadata?.let { metadataResolver.getArtistOrAuthor(it) }
             val album = metadata?.let { metadataResolver.getAlbum(it) }
             val bitmap = metadata?.let { metadataResolver.getCoverArt(it) }

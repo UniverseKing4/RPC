@@ -18,6 +18,8 @@ import android.content.Context
 import com.blankj.utilcode.util.AppUtils
 import com.my.rpc.data.rpc.CommonRpc
 import com.my.rpc.data.rpc.RpcImage
+import com.my.rpc.data.utils.cleanAppName
+import com.my.rpc.data.utils.getLauncherAppName
 import com.my.rpc.preference.Prefs
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.serialization.decodeFromString
@@ -46,7 +48,7 @@ class GetCurrentlyRunningApp @Inject constructor(
                 val packageName = treeMap[treeMap.lastKey()]!!.packageName
                 Objects.requireNonNull(packageName)
                 return CommonRpc(
-                    name = AppUtils.getAppName(packageName),
+                    name = context.getLauncherAppName(packageName).cleanAppName(),
                     details = null,
                     state = null,
                     largeImage = RpcImage.ApplicationIcon(packageName, context),
