@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">RPC</string>
+    <string name="app_name">App RPC</string>
     <string name="qs_tile_label" translatable="false">RPC Quickie</string>
 
     <!-- Activities -->
