@@ -20,11 +20,13 @@ import rpc.gateway.DiscordWebSocket
 import rpc.gateway.DiscordWebSocketImpl
 import rpc.gateway.entities.Payload
 
+import rpc.gateway.entities.Ready
+
 suspend fun getUserInfo(token: String, onInfoSaved: () -> Unit) {
     val discordWebSocket: DiscordWebSocket = object: DiscordWebSocketImpl(token){
         override fun Payload.handleDispatch(jsonString: String) {
             if (this.t.toString() == "READY"){
-                val user = decodeReady(jsonString)?.user ?: return
+                val user = decodePayloadData<Ready>(jsonString)?.user ?: return
                 Prefs[USER_ID] = user.id
                 Prefs[USER_BIO] = user.bio
                 Prefs[USER_NITRO] = user.premiumType in 1..3

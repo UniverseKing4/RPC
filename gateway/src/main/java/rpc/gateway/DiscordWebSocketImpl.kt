@@ -19,6 +19,7 @@ import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
+import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import kotlin.coroutines.CoroutineContext
@@ -62,7 +63,7 @@ open class DiscordWebSocketImpl(
     private var client: HttpClient = HttpClient {
         install(WebSockets)
     }
-    private val json = Json {
+    protected val json = Json {
         ignoreUnknownKeys = true
         encodeDefaults = true
     }
@@ -180,7 +181,7 @@ open class DiscordWebSocketImpl(
         startHeartbeatJob(heartbeatInterval)
     }
 
-    private inline fun <reified T> decodePayloadData(jsonString: String): T? {
+    protected inline fun <reified T> decodePayloadData(jsonString: String): T? {
         return json.decodeFromString<PayloadData<T>>(jsonString).d
     }
 

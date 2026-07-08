@@ -17,6 +17,7 @@ import com.my.rpc.domain.repository.RpcRepository
 import com.my.rpc.preference.Prefs
 import com.my.rpc.preference.Prefs.CUSTOM_ACTIVITY_TYPE
 import rpc.gateway.DiscordWebSocket
+import kotlinx.coroutines.isActive
 import rpc.gateway.entities.presence.Activity
 import rpc.gateway.entities.presence.Assets
 import rpc.gateway.entities.presence.Metadata
